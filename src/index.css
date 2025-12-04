@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    /* Por defecto (Claro) */
+    @apply bg-gray-50 text-gray-900 transition-colors duration-300; 
+  }
+
+  /* Si el sistema del usuario está en modo oscuro (o si activamos la clase dark) */
+  @media (prefers-color-scheme: dark) {
+    body {
+      @apply bg-gray-950 text-gray-100;
+    }
+  }
+}
