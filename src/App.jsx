@@ -5,11 +5,6 @@ import MovieDetail from './pages/MovieDetail';
 import Favorites from './pages/Favorites';
 import NotFound from './pages/NotFound';
 
-// Componentes temporales (Placeholders) para probar la navegación
-// const MovieDetail = () => <div className="p-10 text-center text-2xl">📄 Detalle de Película</div>;
-// const Favorites = () => <div className="p-10 text-center text-2xl">⭐ Mis Favoritos</div>;
-// const NotFound = () => <div className="p-10 text-center text-2xl text-red-500">404 - No encontrado</div>;
-
 export default function App() {
   return (
     <BrowserRouter>
@@ -25,7 +20,6 @@ export default function App() {
           </Routes>
         </main>
         
-        {/* Footer sencillo */}
         <footer className="text-center py-6 text-gray-500 text-sm">
           &copy; {new Date().getFullYear()} CineBusca - Hackathon IEEE
         </footer>

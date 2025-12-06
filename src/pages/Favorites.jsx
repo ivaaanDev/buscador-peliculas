@@ -22,10 +22,15 @@ export default function Favorites() {
     localStorage.setItem('favorites', JSON.stringify(newFavorites));
   };
 
+  
+
   if (favorites.length === 0) {
     return (
       <div className="text-center py-24 px-4">
-      <div className="text-6xl mb-6">📂</div>
+      <div className="place-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 256 256"><path fill="currentColor" d="m198.24 62.63l15.68-17.25a8 8 0 0 0-11.84-10.76L186.4 51.86A95.95 95.95 0 0 0 57.76 193.37l-15.68 17.25a8 8 0 1 0 11.84 10.76l15.68-17.24A95.95 95.95 0 0 0 198.24 62.63M48 128a80 80 0 0 1 127.6-64.25l-107 117.73A79.63 79.63 0 0 1 48 128m80 80a79.55 79.55 0 0 1-47.6-15.75l107-117.73A79.95 79.95 0 0 1 128 208"/>
+        </svg>
+      </div>
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Colección vacía</h2>
       <p className="text-gray-500 dark:text-gray-400 mb-8 max-w-sm mx-auto">
         No has guardado nada aún. Busca películas y agrégalas aquí.
@@ -49,16 +54,15 @@ export default function Favorites() {
             {/* Reutilizamos la tarjeta, pero ajustamos el ID porque OMDb usa 'imdbID' en los detalles y 'id' en búsqueda */}
             <MovieCard movie={{ ...movie, id: movie.imdbID, poster: movie.Poster, title: movie.Title, year: movie.Year, type: movie.Type }} />
             
-            {/* Botón de Eliminar flotante (Solo visible en esta página) */}
             <button 
               onClick={(e) => {
-                e.preventDefault(); // Evitamos que el click navegue al detalle
+                e.preventDefault();
                 removeFavorite(movie.imdbID);
               }}
               className="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-10"
               title="Eliminar de favoritos"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16m-10 4v6m4-6v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zm2-4h2V8H9zm4 0h2V8h-2z"/></svg> 
             </button>
           </div>
         ))}

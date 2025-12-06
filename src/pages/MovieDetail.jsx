@@ -57,7 +57,6 @@ export default function MovieDetail() {
   if (loading) return <div className="text-white text-center mt-20 text-xl">Cargando detalles...</div>;
   if (!movie) return null;
 
-  // ... imports y lógica
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl animate-fade-in">
@@ -67,7 +66,6 @@ export default function MovieDetail() {
 
       <div className="grid md:grid-cols-[350px_1fr] gap-10 items-start">
         
-        {/* POSTER con sombra suave en light mode, sin sombra en dark */}
         <div className="space-y-6">
           <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-900/5 dark:ring-white/10">
              <img 
@@ -79,13 +77,17 @@ export default function MovieDetail() {
 
           <button 
             onClick={toggleFavorite}
-            className={`w-full py-4 rounded-xl font-bold text-sm tracking-wide transition-all transform active:scale-95 shadow-lg ${
+            className={`w-full py-4 rounded-xl font-bold text-sm tracking-wide transition-all transform active:scale-95 shadow-lg justify-center items-center flex gap-2 ${
               isFavorite 
                 ? 'bg-red-50 text-red-600 hover:bg-red-100 dark:bg-red-900/20 dark:text-red-400 dark:hover:bg-red-900/30' 
                 : 'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500'
             }`}
           >
-            {isFavorite ? '💔 Eliminar de colección' : '⭐ Añadir a colección'}
+            {isFavorite ?
+             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zm2-4h2V8H9zm4 0h2V8h-2z"/></svg> 
+             : 
+             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m12 21l-1.45-1.3q-2.525-2.275-4.175-3.925T3.75 12.812T2.388 10.4T2 8.15Q2 5.8 3.575 4.225T7.5 2.65q1.3 0 2.475.55T12 4.75q.85-1 2.025-1.55t2.475-.55q2.35 0 3.925 1.575T22 8.15q0 1.15-.387 2.25t-1.363 2.412t-2.625 2.963T13.45 19.7z"/></svg>
+             }
           </button>
         </div>
 
@@ -97,7 +99,7 @@ export default function MovieDetail() {
             </h1>
             
             <div className="flex flex-wrap gap-3">
-              {/* Tags (Badges) Minimalistas */}
+              {/* Tags */}
               {[movie.Year, movie.Rated, movie.Runtime, movie.Genre].map((tag, i) => (
                 <span key={i} className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider
                                        bg-gray-100 text-gray-600 border border-gray-200
@@ -108,7 +110,7 @@ export default function MovieDetail() {
             </div>
           </div>
 
-          {/* RATINGS */}
+          {/* Ratings */}
           <div className="flex items-center gap-8 py-6 border-y border-gray-100 dark:border-gray-800">
             <div>
               <p className="text-3xl font-bold text-gray-900 dark:text-white">{movie.imdbRating}</p>

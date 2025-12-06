@@ -4,9 +4,9 @@ import MovieCard from '../components/ui/MovieCard';
 
 export default function Home() {
   const [query, setQuery] = useState('');
-  const [type, setType] = useState(''); // Filtro Tipo
-  const [year, setYear] = useState(''); // Filtro Año
-  const [page, setPage] = useState(1);  // Paginación
+  const [type, setType] = useState('');
+  const [year, setYear] = useState('');
+  const [page, setPage] = useState(1);
   
   const [movies, setMovies] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
@@ -16,7 +16,7 @@ export default function Home() {
   // Carga inicial
   useEffect(() => {
     // Solo buscamos al inicio si no hay query, para llenar la pantalla
-    performSearch('Avengers', 1);
+    performSearch('Movie', 1);
   }, []);
 
   // Función centralizada de búsqueda
@@ -29,7 +29,7 @@ export default function Home() {
         search: searchTerm, 
         type, 
         year, 
-        page: pageNum 
+        page: pageNum
       });
       
       setMovies(data.movies || []);
@@ -54,16 +54,16 @@ export default function Home() {
 
   // Manejador de cambio de página
   const handlePageChange = (newPage) => {
-    performSearch(query || 'Avengers', newPage);
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll arriba suave
+    performSearch(query || 'Movie', newPage);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const totalPages = Math.ceil(totalResults / 10); // OMDb devuelve 10 por página
 
-  // ... (imports y lógica igual que antes)
+  const totalPages = Math.ceil(totalResults / 10);
+
 
   return (
-    <div className="space-y-12 py-10"> {/* Espaciado más aireado */}
+    <div className="space-y-12 py-10">
       
       {/* HERO SECTION */}
       <section className="px-4 text-center space-y-6">
@@ -82,10 +82,6 @@ export default function Home() {
               placeholder="Ej. Interestelar..." 
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              /* CLAVE DEL DISEÑO:
-                 Claro: bg-white, border-gray-200, texto oscuro.
-                 Oscuro: dark:bg-gray-900, dark:border-gray-700, texto blanco.
-              */
               className="flex-1 px-6 py-4 rounded-2xl text-lg outline-none transition-all
                          bg-white border border-gray-200 text-gray-900 placeholder-gray-400 shadow-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500
                          dark:bg-gray-900 dark:border-gray-800 dark:text-white dark:placeholder-gray-500"
@@ -101,7 +97,7 @@ export default function Home() {
             </button>
           </div>
 
-          {/* FILTROS MINIMALISTAS */}
+          {/* Filtros*/}
           <div className="flex flex-wrap gap-3 justify-center">
             <select 
               value={type}
@@ -131,7 +127,6 @@ export default function Home() {
 
       {/* RESULTADOS */}
       <section className="container mx-auto px-4">
-        {/* ... (Lógica de loading y error igual que antes) ... */}
 
         {!loading && !error && (
           <>
@@ -147,7 +142,7 @@ export default function Home() {
               ))}
             </div>
             
-            {/* ... (Paginación con botones estilo minimalist, usa las mismas clases de botones que arriba) ... */}
+            {/*Paginación*/}
             {totalPages > 1 && (
                <div className="flex justify-center items-center gap-4 mt-12">
                  <button 
