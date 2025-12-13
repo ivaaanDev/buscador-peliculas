@@ -40,7 +40,6 @@ export const searchMovies = async ({ search, type, page = 1, year }) => {
   }
 };
 
-// ... (código anterior searchMovies)
 
 export const getMovieById = async (id) => {
   try {
