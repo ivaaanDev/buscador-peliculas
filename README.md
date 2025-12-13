@@ -5,6 +5,10 @@
 > Proyecto desarrollado para el **IEEE ESTl Frontend Hackathon**.
 > Una interfaz moderna y reactiva para explorar el vasto mundo del cine utilizando la OMDb API.
 
+## 👀 Preview
+
+  https://magical-dieffenbachia-f87d22.netlify.app/
+
 ## ✨ Características
 
 - 🔍 **Búsqueda en Tiempo Real**: Encuentra películas, series y episodios.
