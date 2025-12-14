@@ -34,7 +34,7 @@ Sigue estos pasos para correr el proyecto localmente:
 
 1. **Clonar el repositorio**
    ```bash
-   git clone [URL_DE_TU_REPO_AQUI]
+   git clone [https://github.com/ivaaanDev/buscador-peliculas]
    cd buscador-peliculas
 
 2. **Instalar dependencias**
