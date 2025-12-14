@@ -1,6 +1,6 @@
 # 🎬 CineBusca - Buscador de Películas y Series
 
-![Logo](./src/assets/logo.svg)
+![Logo](./src/assets/logo_b.svg)
 
 > Proyecto desarrollado para el **IEEE ESTl Frontend Hackathon**.
 > Una interfaz moderna y reactiva para explorar el vasto mundo del cine utilizando la OMDb API.
